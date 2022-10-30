@@ -1,9 +1,8 @@
-# Mastodon API
-[![Build Status](https://travis-ci.org/vanita5/mastodon-api.svg)](https://travis-ci.org/vanita5/mastodon-api) [![NPM Downloads](https://img.shields.io/npm/dt/mastodon-api.svg)](https://www.npmjs.com/package/mastodon-api) [![NPM Version](https://img.shields.io/npm/v/mastodon-api.svg)](https://www.npmjs.com/package/mastodon-api) [![code style](https://img.shields.io/badge/code%20style-airbnb-ff69b4.svg)](https://github.com/airbnb/javascript)
+Mastodon API
+============
 
-[Mastodon](https://github.com/tootsuite/mastodon/) API Client for node
-
-# Installing
+Installing
+----------
 
 ```bash
 yarn add mastodon-api
@@ -15,9 +14,10 @@ OR
 npm install --save mastodon-api
 ```
 
-# Usage:
+Usage:
+------
 
-## Authorization
+### Authorization
 
 For getting an access token, please take a look into [examples/authorization.js](https://github.com/vanita5/mastodon-api/blob/master/examples/authorization.js).
 
@@ -30,7 +30,7 @@ The authorization process works as follows:
 2. With the received `client_id` and `client_secret` get an authorization URL
 3. Get an access token by hitting the `/oauth/token` endpoint with the authorization code you got from the authorization page
 
-## `Mastodon.createOAuthApp(url, clientName, scopes, redirectUri)`
+### `Mastodon.createOAuthApp(url, clientName, scopes, redirectUri)`
 Makes a call to the `/app` endpoint to create an OAuth app.
 Returns the apps `id`, `client_id` and `client_secret`.
 
@@ -52,7 +52,7 @@ Optional. Defines the scopes of your OAuth app whitespace seperated. Defaults to
 
 Optional. Defaults to `urn:ietf:wg:oauth:2.0:oob`. This will be used in a future call to `Mastodon.getAuthorizationUrl(...)`, only the URL defined here can be used later to redirect the user. The default means no redirect (the code will be shown to the user).
 
-## `Mastodon.getAuthorizationUrl(clientId, clientSecret, baseUrl, scope, redirectUri)`
+### `Mastodon.getAuthorizationUrl(clientId, clientSecret, baseUrl, scope, redirectUri)`
 Returns an authorization url for users to authorize your application.
 `clientId` and `clientSecret` can be obtained by calling `Mastodon.createOAuthApp(...)` before.
 
@@ -76,7 +76,7 @@ Optional. Defines the scopes of your OAuth app whitespace seperated. Defaults to
 
 Optional. Defaults to `urn:ietf:wg:oauth:2.0:oob`. If you specify your own URL, it will be called with a query parameter `code`.
 
-## `Mastodon.getAccessToken(clientId, clientSecret, authorizationCode, baseUrl, redirectUri)`
+### `Mastodon.getAccessToken(clientId, clientSecret, authorizationCode, baseUrl, redirectUri)`
 After authorizing your OAuth application via the authorization URL from `Mastodon.getAuthorizationUrl(...)`
 you'll get the authorization code on the website, which lets us obtain the access token we actually need.
 
@@ -113,7 +113,7 @@ const M = new Mastodon({
 
 # node-mastodon API:
 
-## `const M = new Mastodon(config)`
+### `const M = new Mastodon(config)`
 
 Create a `Mastodon` instance that can be used to make requests to Mastodon's APIs.
 
@@ -124,7 +124,7 @@ If authenticating with user context, `config` should be an object of the form:
 }
 ```
 
-## `M.get(path, [params], callback)`
+### `M.get(path, [params], callback)`
 GET any of the REST API endpoints.
 
 **path**
@@ -142,23 +142,24 @@ The endpoint to hit.
 - `data` is the parsed data received from Mastodon.
 - `response` is the [http.IncomingMessage](http://nodejs.org/api/http.html#http_http_incomingmessage) received from Mastodon.
 
-## `M.post(path, [params], callback)`
+### `M.post(path, [params], callback)`
 
 POST any of the REST API endpoints. Same usage as `T.get()`.
 
-## `M.stream(path, [params])`
+### `M.stream(path, [params])`
 
 Returns a stream listener instance. See examples on how to use it.
 
-## `M.getAuth()`
+### `M.getAuth()`
 Get the client's authentication tokens.
 
-## `M.setAuth(tokens)`
+### `M.setAuth(tokens)`
 Update the client's authentication tokens.
 
 -------
 
-# Examples
+Examples
+--------
 
 ### Reading the home timeline
 ```javascript
@@ -187,7 +188,8 @@ listener.on('error', err => console.log(err))
 
 -------
 
-# Advanced
+Advanced
+--------
 
 You may specify an array of trusted certificate fingerprints if you want to only trust a specific set of certificates.
 When an HTTP response is received, it is verified that the certificate was signed, and the peer certificate's fingerprint must be one of the values you specified. By default, the node.js trusted "root" CAs will be used.
@@ -202,9 +204,12 @@ const M = new Mastodon({
 })
 ```
 
-# License
+License
+-------
 
-This software is a fork of [twit](https://github.com/ttezel/twit) and [node-mastodon](https://github.com/jessicahayley/node-mastodon).
+This software is a fork of [mastodon-api](https://github.com/vanita5/mastodon-api)
+based on [twit](https://github.com/ttezel/twit)
+and [node-mastodon](https://github.com/jessicahayley/node-mastodon).
 
 Thanks for your awesome work <3
 
@@ -212,6 +217,7 @@ Thanks for your awesome work <3
 (The MIT License)
 
 Copyright (c) 2017 vanita5 <mail@vanit.as>
+Copyright (c) 2022 Sophie Bremer
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
