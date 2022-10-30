@@ -5,13 +5,7 @@ Installing
 ----------
 
 ```bash
-yarn add mastodon-api
-```
-
-OR
-
-```bash
-npm install --save mastodon-api
+npm install github:sophiebremer/mastodon-api
 ```
 
 Usage:
