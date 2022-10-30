@@ -4,7 +4,7 @@ import Stream from 'stream';
 export type Callback = (
     err: Error,
     data: unknown,
-    response: HTTP.IncomfingMessage
+    response: HTTP.IncomingMessage
 ) => void;
 
 export interface Config {
