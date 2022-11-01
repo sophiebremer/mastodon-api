@@ -6,7 +6,7 @@
     "main": "./lib/mastodon",
     "name": "mastodon-api",
     "types": "./types.d.ts",
-    "version": "1.9.9",
+    "version": "1.9.99",
     "bugs": "https://github.com/sophiebremer/mastodon-api/issues",
     "homepage": "https://github.com/sophiebremer/mastodon-api",
     "repository": "https://github.com/sophiebremer/mastodon-api.git",

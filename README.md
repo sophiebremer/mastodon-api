@@ -8,6 +8,12 @@ Installing
 npm install github:sophiebremer/mastodon-api
 ```
 
+or with version tag
+
+```bash
+npm install github:sophiebremer/mastodon-api#v1.9.99
+```
+
 Usage:
 ------
 
