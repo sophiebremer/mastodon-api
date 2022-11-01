@@ -20,7 +20,7 @@ export interface Tokens {
     client_secret: string;
 }
 
-export class Mastodon {
+declare class Mastodon {
     constructor (config: Config);
     /** @deprecated */
     createOAuthApp(
@@ -29,8 +29,15 @@ export class Mastodon {
         scopes: string,
         redirectUri: string
     ): Tokens;
-    get(path: string, callback: Callback): void;
-    get(path: string, params: Record<string, any>, callback: Callback): void;
+    get(
+        path: string,
+        callback: Callback
+    ): void;
+    get(
+        path: string,
+        params: Record<string, any>,
+        callback: Callback
+    ): void;
     getAuth(): Tokens;
     /** @deprecated */
     getAuthorizationUrl(
@@ -40,8 +47,15 @@ export class Mastodon {
         scope?: string, /* default: read write follow */
         redirectUri?: string /* default: urn:ietf:wg:oauth:2.0:oob */
     ): string;
-    post(path: string, callback: Callback): void;
-    post(path: string, params: Record<string, any>, callback: Callback): void;
+    post(
+        path: string,
+        callback: Callback
+    ): void;
+    post(
+        path: string,
+        params: Record<string, any>,
+        callback: Callback
+    ): void;
     setAuth(tokens: Tokens): void;
     stream(path: string): Stream;
     stream(path: string, params: Record<string, any>): Stream;
